@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table class="table table-striped table-hover table-bordered">
+      <thead class="table-dark">
+        <br/>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">first Name</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Address</th>
+          <th scope="col">Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          {% if records %}
+            {% for record in records %}
+            <tr>
+              <td><a href="{% url 'record' record.id %}">{{ record.id }}</a></td>
+              <td>{{ record.first_name }}
+                  {{ record.last_name }}</td>
+              <td>{{ record.phone_no }}</td>
+              <td>{{ record.address }}</td>
+              <td>{{ record.created_at }}</td>
+            </tr>     
+      
+            {% endfor %}
+          {% endif %}
+        
+      </tbody>
+    </table>
+
+
+
+
+{% endblock %}
+
+
